@@ -1,0 +1,26 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind", "apply", "layer", "responsive", "screen"]
+      }
+    ],
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind", "apply", "layer", "responsive", "screen"]
+      }
+    ],
+    "declaration-empty-line-before": null,
+    "scss/operator-no-newline-before": null,
+    "rule-empty-line-before": null,
+    "at-rule-empty-line-before": null,
+    "length-zero-no-unit": null,
+    "scss/no-global-function-names": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "font-family-no-missing-generic-family-keyword": null
+  }
+}

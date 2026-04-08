@@ -1,0 +1,43 @@
+<!doctype html>
+<html dir="ltr" lang="{lang}">
+  <head>
+    <meta charset="utf-8" />
+    <title>{layout:title}{site_name}</title>
+    <meta name="viewport" content="initial-scale=1" />
+
+    <!-- meta data -->
+    {if layout:meta_author}
+    <meta name="author" content="{layout:meta_author}" />
+    {/if} {if layout:meta_description}
+    <meta name="description" content="{layout:meta_description}" />
+    {/if}
+
+    <!-- open graph common -->
+    <meta property="og:site_name" content="{site_name}" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="{theme_user_folder_url}site/default/asset/img/og/default.jpg"
+    />
+    {!-- square, 50*50 min --} {if layout:og_title != ''}
+    <!-- open graph per page -->
+    <meta property="og:title" content="{layout:og_title}" />
+    <meta property="og:url" content="{layout:og_url}" />
+    <meta property="og:description" content="{layout:og_description}" />
+    {/if}
+
+    <!-- Custom Compiled Tailwind CSS (includes all Tailwind utilities + custom components) -->
+    <link
+      href="{theme_user_folder_url}site/default/asset/css/global.css"
+      rel="stylesheet"
+    />
+    <!-- <link href="{theme_user_folder_url}site/default/asset/css/slidein.css" rel="stylesheet"> -->
+  </head>
+  <body>
+    <header>{_nav-main}</header>
+
+    <section>{layout:contents}</section>
+
+    <script src="{theme_user_folder_url}site/default/asset/js/menu-trigger.js"></script>
+  </body>
+</html>

@@ -287,18 +287,53 @@ li {
     }
   }
 }
-.layout-section__first {
-  @apply relative top-24;
+.layout-section {
+  &__first {
+    @apply md:mx-auto w-full md:max-w-7xl  relative top-12 md:top-24;
+  }
+  &__second {
+    @apply md:mx-auto w-full md:max-w-7xl  relative top-40;
+  }
 }
 
 .carousel {
   &__wrapper {
-    @apply relative overflow-hidden;
+    @apply relative;
+    box-shadow:
+      rgb(50 50 93 / 5%) 6px 5px 7px -1px,
+      rgb(0 0 0 / 30%) 0px 6.5px 10px -1px;
   }
   &__item {
-    @apply w-full h-[540px] block object-cover;
+    @apply w-full h-[540px] bg-center block object-cover;
   }
   &__title {
-    @apply text-6xl text-white;
+    @apply text-5xl md:text-6xl text-white absolute top-[20px] md:top-auto md:bottom-[20px] left-0 right-0 px-[20px];
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+.header-badge {
+  @apply w-[250px] h-[250px] absolute bottom-[-80px] right-[20px] bg-cover z-20;
+  &__text {
+    @apply w-[180px] text-[24px] leading-[38px] my-[62px] mx-[28px] text-center font-extrabold rotate-[20deg] text-[#938a9e];
+  }
+}
+
+.collectie-overview {
+  @apply flex flex-wrap justify-center gap-6;
+  &__item {
+    @apply w-full sm:max-w-[39rem]  cursor-pointer;
+    & h2 {
+      @apply text-[30px] font-normal relative bottom-[20px] pl-0 m-0
+         shadow-[0px_2px_5px_-1px_rgba(50,50,93,0.05),0px_1px_3px_-1px_rgba(0,0,0,0.3)]
+         border border-black/30 bg-white min-w-[200px] w-[300px]
+         rounded-[1px_5px] ml-[30px] text-center;
+    }
+  }
+  &__image {
+    @apply w-full h-[270px] bg-center bg-white block rounded-none md:rounded-lg object-cover;
+
+    box-shadow:
+      rgb(50 50 93 / 5%) 6px 5px 7px -1px,
+      rgb(0 0 0 / 30%) 0px 6.5px 10px -1px;
   }
 }

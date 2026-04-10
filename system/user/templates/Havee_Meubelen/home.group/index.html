@@ -1,15 +1,13 @@
 {layout='layouts/_home-layout'}
 
 
-<div class="slider-wrapper">
-  <h1 class="text-4xl font-bold mb-8">Home</h1>
-  <p>Welkom op de homepagina van Havee Meubelen!</p>
-</div>
+<div class="collectie-overview">
+  {exp:channel:entries channel="homepage_content" category="1" sort="asc" limit="4"}
+  <a class="collectie-overview__item" href="/2022/collectie/{title}">
+    <div class="collectie-overview__image" style="background-image: url('{collectie_image}');">
+    </div>
+    <h2>Collectie {title}</h2>
+  </a>
+  {/exp:channel:entries}
 
-<div class="content-wrapper">
-  <h2 class="text-2xl font-semibold mb-4">Onze Collectie</h2>
-  <p>
-    Ontdek onze uitgebreide collectie meubelen, ontworpen met oog voor detail en
-    kwaliteit.
-  </p>
 </div>

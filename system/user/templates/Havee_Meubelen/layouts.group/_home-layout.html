@@ -5,14 +5,18 @@
   <div class="carousel__wrapper">
     {exp:channel:entries channel="homepage_carousel" limit="10"}
     <img class="carousel__item" src="https://haveemeubelen.nl/themes/site_themes/havee/images/blanc.png"
-      style="background-image: url('{carousel_image}');" alt="{title}">
+      style="background-image: url('{carousel_image}'); background-position:{carousel_mobile_positie};" alt="{title}">
     {/exp:channel:entries}
-    {exp:channel:entries channel="homepage_content" limit="1"}
+    {exp:channel:entries channel="homepage_content" category="2" limit="1"}
+
     <span class="carousel__title">
       {title}
     </span>
+
+    {_badge}
     {/exp:channel:entries}
   </div>
+</section>
+<section class="layout-section__second">
   {layout:contents}
-
 </section>

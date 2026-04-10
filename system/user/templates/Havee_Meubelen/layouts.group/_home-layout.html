@@ -1,0 +1,18 @@
+{layout='layouts/_html-wrapper'}
+
+<section class="layout-section__first">
+
+  <div class="carousel__wrapper">
+    {exp:channel:entries channel="homepage_carousel" limit="10"}
+    <img class="carousel__item" src="https://haveemeubelen.nl/themes/site_themes/havee/images/blanc.png"
+      style="background-image: url('{carousel_image}');" alt="{title}">
+    {/exp:channel:entries}
+    {exp:channel:entries channel="homepage_content" limit="1"}
+    <span class="carousel__title">
+      {title}
+    </span>
+    {/exp:channel:entries}
+  </div>
+  {layout:contents}
+
+</section>

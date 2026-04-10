@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 /* HAVEE MEUBELEN - Global Styles */
+@font-face {
+  font-family: "Euclid Flex";
+  src:
+    local("Euclid Flex Light"),
+    local("Euclid-Flex-Light"),
+    url("../fonts/EuclidFlex-Light.woff2") format("woff2"),
+    url("../fonts/EuclidFlex-Light.woff") format("woff"),
+    url("../fonts/EuclidFlex-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
 
 /* Custom CSS Variables */
 :root {
@@ -14,17 +25,12 @@
 /* Custom site styles */
 body {
   font-family:
+    "Euclid Flex",
     "Inter",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -187,9 +193,9 @@ li {
 }
 
 .nav-menu {
-  @apply w-screen fixed flex flex-row text-white hover:text-gray-200 bg-black gap-6 shadow-md;
+  @apply w-screen z-50 fixed flex flex-row text-white hover:text-gray-200 bg-black gap-6 shadow-md;
 
-  @apply max-md:fixed max-md:top-[60px] max-md:right-[-100%] max-md:w-3/5 max-md:h-[calc(100vh-60px)] 
+  @apply max-md:fixed max-md:top-[60px] max-md:right-[-100%] max-md:w-3/5 max-md:h-[calc(100vh-60px)]
   max-md:flex-col max-md:gap-0 max-md:justify-start max-md:p-0 max-md:z-[998] max-md:overflow-y-auto max-md:bg-gray-800 max-md:transition-all max-md:duration-500;
 
   &.active {
@@ -213,7 +219,7 @@ li {
       }
     }
     &-mobile {
-      @apply block m-2 md:h-0 md:w-0 md:hidden ;
+      @apply block m-2 md:h-0 md:w-0 md:hidden;
       &-item {
         @apply pl-6;
       }
@@ -244,8 +250,8 @@ li {
   &__sub {
     &--collectie,
     &--service {
-      @apply  fixed top-20 left-0 flex flex-col shadow-md bg-white text-black p-0 m-0 w-full list-none overflow-hidden opacity-100 max-h-[0px];
-      z-index: 0;
+      @apply fixed top-20 left-0 flex flex-col shadow-md bg-white text-black p-0 m-0 w-full list-none overflow-hidden opacity-100 max-h-[0px];
+      z-index: 1;
       transform: translateY(0px);
       pointer-events: none;
       transition:
@@ -279,5 +285,20 @@ li {
         @apply content-['\203A'] ml-2;
       }
     }
+  }
+}
+.layout-section__first {
+  @apply relative top-24;
+}
+
+.carousel {
+  &__wrapper {
+    @apply relative overflow-hidden;
+  }
+  &__item {
+    @apply w-full h-[540px] block object-cover;
+  }
+  &__title {
+    @apply text-6xl text-white;
   }
 }

@@ -1,0 +1,12 @@
+<h3>Dealers in de regio: <span id="dealer-regio"></span></h3>
+{exp:channel:entries channel="company_dealers" }
+
+<div class="hidden-dealer" data-id="{dealer_provincie}">
+  <div class="dealer">
+    <div class="dealer_name">
+      {dealer_plaats} - {title}
+    </div>
+  </div>
+</div>
+
+{/exp:channel:entries}

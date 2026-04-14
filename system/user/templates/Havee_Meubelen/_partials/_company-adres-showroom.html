@@ -1,0 +1,25 @@
+{exp:channel:entries channel="company_content" entry_id="9" }
+<h2>Ons adres:</h2>
+{company_adres}
+<hr>
+<h2>Showroom:</h2>
+{company_showroom}
+<hr>
+<p>
+  {company_opening_hours}
+<div class="opening-hours">
+  <div class="opening-hours__day">
+    {company_opening_hours:day}
+  </div>
+  <div class="opening-hours__time">
+    {company_opening_hours:start_am} - {company_opening_hours:end_am} uur
+    {if company_opening_hours:start_pm}
+    <br />{company_opening_hours:start_pm} - {company_opening_hours:end_pm} uur
+    {/if}
+  </div>
+
+</div>
+<hr>
+{/company_opening_hours}
+</p>
+{/exp:channel:entries}

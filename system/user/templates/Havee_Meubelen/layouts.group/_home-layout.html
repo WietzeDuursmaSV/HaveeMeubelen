@@ -1,7 +1,6 @@
 {layout='layouts/_html-wrapper'}
 
-<section class="layout-section__first">
-
+<section class="layout-section__top">
   <div class="carousel__wrapper">
     {exp:channel:entries channel="homepage_carousel" limit="10"}
     <img class="carousel__item" src="https://haveemeubelen.nl/themes/site_themes/havee/images/blanc.png"
@@ -12,11 +11,9 @@
     <span class="carousel__title">
       {title}
     </span>
-
     {_badge}
     {/exp:channel:entries}
   </div>
 </section>
-<section class="layout-section__second">
-  {layout:contents}
-</section>
+
+{layout:contents}

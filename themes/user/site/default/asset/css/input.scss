@@ -422,7 +422,7 @@ li {
     @apply text-4xl;
   }
   &__badge {
-    @apply w-[250px] h-[250px] relative bottom-0 right-0 bg-cover mt-[30px] ml-[30px];
+    @apply w-[250px] h-[250px] relative bottom-0 right-0 bg-cover mt-[30px] ml-16 md:ml-[30px];
     &-text {
       @apply w-[180px] text-[24px] leading-[38px] my-[62px] mx-[28px] text-center font-extrabold rotate-[20deg] text-[#938a9e];
     }
@@ -474,6 +474,9 @@ li {
 
   &__content-dealer {
     @apply w-full md:w-1/2 flex items-center justify-center;
+  }
+  &__content-full {
+    @apply w-full;
   }
 }
 
@@ -642,14 +645,23 @@ li {
 
 .footer {
   &-wrapper {
-    @apply md:mx-auto w-full md:max-w-7xl relative text-white flex flex-col justify-around  md:flex-row py-6;
+    @apply md:mx-auto w-full md:max-w-7xl relative text-white flex flex-col justify-around  md:flex-row py-6 items-center md:items-start;
   }
   &__social-links {
-    @apply flex flex-row gap-4 justify-center md:justify-start;
+    @apply flex flex-row gap-4 justify-center md:justify-start mb-4 md:mb-0;
   }
   &__settings-links {
     @apply flex flex-col md:flex-row gap-4 justify-center md:justify-start;
   }
+}
+.viewed-header {
+  @apply w-full flex flex-row items-center justify-center md:justify-start md:items-start;
+}
+.viewed-container {
+  @apply flex flex-col md:flex-row gap-4 items-center md:items-start;
+}
+.viewed-item-container {
+  @apply h-[140px] w-[200px] bg-cover;
 }
 
 /* Legacy Support - Keep old styles for compatibility */

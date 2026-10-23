@@ -1,0 +1,20 @@
+{layout='layouts/_html-wrapper'}
+
+{exp:channel:entries channel="company_models" url_title='{segment_2}'}
+<section class="layout-section__top ">
+  <div class="model-hero__wrapper">
+
+    <div id="logo" class="model-hero__logo">
+      <img src="https://haveemeubelen.nl/new/global_images/logo-{categories}{category_name}{/categories}.png">
+    </div>
+
+    {model_images limit="1"}
+    <img id="product-image" data-img="{model_images:modal_image}" class="model-hero__img"
+      src="https://haveemeubelen.nl/themes/site_themes/havee/images/blanc.png"
+      style="background-image: url({model_images:modal_image});">
+    {/model_images}
+  </div>
+</section>
+{/exp:channel:entries}
+
+{layout:contents}

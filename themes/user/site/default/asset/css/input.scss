@@ -71,7 +71,10 @@ li {
     @apply md:mx-auto w-full md:max-w-7xl  relative top-40;
   }
   &__feature {
-    @apply w-full relative top-40;
+    @apply w-full relative top-10 md:top-40;
+    &-footer {
+      @apply bg-stone-500 relative top-10 md:top-40;
+    }
   }
 }
 
@@ -203,7 +206,7 @@ li {
   max-md:flex-col max-md:gap-0 max-md:justify-start max-md:p-0 max-md:z-[998] max-md:overflow-y-auto max-md:bg-gray-800 max-md:transition-all max-md:duration-500;
 
   &.active {
-    @apply max-md:right-0 md:static;
+    @apply max-md:right-0 md:sticky;
   }
 
   &__top-level {
@@ -249,12 +252,48 @@ li {
       }
     }
   }
+}
 
+/* Mobile accordion */
+.nav-mobile-accordion {
+  &__trigger {
+    @apply flex items-center justify-between cursor-pointer;
+  }
+
+  &__arrow {
+    @apply inline-block w-0 h-0 ml-2 mr-2
+      border-l-[5px] border-l-transparent
+      border-r-[5px] border-r-transparent
+      border-t-[5px] border-t-white
+      transition-transform duration-200;
+  }
+
+  &__trigger.open &__arrow,
+  &__trigger.open + * .nav-mobile-accordion__arrow {
+    @apply rotate-180;
+  }
+
+  &__trigger.open .nav-mobile-accordion__arrow {
+    @apply rotate-180;
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  &__content.open {
+    max-height: 800px;
+  }
+}
+
+.nav-menu {
   /* Submenu styles */
   &__sub {
     &--collectie,
     &--service {
-      @apply fixed top-20 left-0 flex flex-col shadow-md bg-white text-black p-0 m-0 w-full list-none overflow-hidden opacity-100 max-h-[0px];
+      @apply fixed top-20 left-0 flex flex-col items-center shadow-md bg-white text-black p-0 m-0 w-full list-none overflow-hidden opacity-100 max-h-[0px];
       z-index: 1;
       transform: translateY(0px);
       pointer-events: none;
@@ -273,17 +312,49 @@ li {
         @apply max-md:max-h-[500px];
       }
     }
+
+    &-wrapper {
+      @apply w-9/12 gap-4 flex flex-row mb-4;
+      &-part {
+        @apply w-1/3 flex flex-col gap-4;
+
+        &-header {
+          @apply mt-4;
+        }
+        &-collectie {
+          @apply columns-1 md:columns-2 gap-4 text-base;
+        }
+      }
+      &-collectie {
+        @apply w-1/2 flex flex-col gap-4;
+      }
+    }
   }
 
   &__sub-item {
-    @apply p-4 hover:bg-gray-100 transition-colors duration-200;
+    @apply m-1 px-2 hover:bg-gray-100 transition-colors duration-200;
 
     @apply max-md:bg-[#2a2a2a] max-md:text-white max-md:hover:bg-[#3a3a3a];
 
     a {
-      @apply text-black hover:text-black text-sm;
+      @apply text-black hover:text-black text-base;
 
-      @apply max-md:text-white max-md:hover:text-gray-300;
+      @apply max-md:text-white max-md:hover:text-gray-100;
+
+      &.chevron-right::after {
+        @apply content-['\203A'] ml-2;
+      }
+    }
+  }
+  &__sub-mobile-item {
+    @apply m-1 px-2 pl-10 flex flex-col w-full;
+
+    @apply max-md:text-white;
+
+    a {
+      @apply text-black hover:text-black text-base;
+
+      @apply max-md:text-white max-md:hover:text-gray-100;
 
       &.chevron-right::after {
         @apply content-['\203A'] ml-2;
@@ -347,12 +418,31 @@ li {
       @apply underline text-base;
     }
   }
+  &__content-header {
+    @apply text-4xl;
+  }
+  &__badge {
+    @apply w-[250px] h-[250px] relative bottom-0 right-0 bg-cover mt-[30px] ml-[30px];
+    &-text {
+      @apply w-[180px] text-[24px] leading-[38px] my-[62px] mx-[28px] text-center font-extrabold rotate-[20deg] text-[#938a9e];
+    }
+  }
+  &__image {
+    @apply w-72 md:w-44 cursor-pointer;
+
+    &-wrapper {
+      @apply flex flex-col md:flex-row md:flex-wrap content-start gap-4;
+    }
+  }
 
   &__content-cta {
     @apply w-full md:w-1/2 flex items-center justify-center;
   }
+  &__content-model {
+    @apply w-full md:w-1/2 flex mt-8 justify-center;
+  }
 }
-
+.information,
 .company {
   &-wrapper {
     @apply md:mx-auto w-full md:max-w-7xl text-base relative flex flex-col md:flex-row justify-evenly py-6;
@@ -392,4 +482,211 @@ li {
 }
 .dealer {
   @apply py-[15px] px-[10px] border border-[#8b8787] my-[5px] flex flex-row justify-start;
+}
+
+.model-hero {
+  &__img {
+    @apply w-full h-fit md:h-[640px] bg-no-repeat bg-[length:100%] md:bg-[length:75%];
+    background-position-y: 100%;
+  }
+  &__logo {
+    @apply w-36 md:w-[300px] absolute top-[20px] right-[10px];
+  }
+  &__wrapper {
+    @apply bg-white block p-0 mb-[40px] rounded-lg
+         shadow-[6px_5px_7px_-1px_rgba(50,50,93,0.05),0px_6.5px_10px_-1px_rgba(0,0,0,0.3)];
+  }
+}
+
+.information {
+  &-wrapper {
+    @apply md:mx-auto w-full md:max-w-7xl text-base relative flex flex-col md:flex-row justify-between items-center md:items-start py-6;
+  }
+  &__content-model {
+    @apply w-11/12 md:w-1/2 flex justify-center;
+  }
+}
+
+#info.wrapper,
+#option.wrapper,
+#dealer.wrapper,
+/* ============================================
+   Expandable Section Component Styles
+   ============================================ */
+
+.expandable-section {
+  @apply w-full md:w-11/12 md:min-w-[550px] border border-gray-400 mb-5;
+
+  &.is-open {
+    .expandable-icon {
+      .icon-plus {
+        @apply hidden;
+      }
+      .icon-minus {
+        @apply block;
+      }
+    }
+  }
+}
+
+/* Header / Toggle Button */
+.expandable-header {
+  @apply w-full flex justify-between items-center cursor-pointer border-0 p-0 hover:bg-gray-50 transition-colors;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+  }
+}
+
+.expandable-title {
+  @apply flex-1 text-left;
+
+  h2 {
+    @apply text-base md:text-xl font-normal m-4;
+    &::first-letter {
+      @apply capitalize;
+    }
+  }
+}
+
+/* Icon Container */
+.expandable-icon {
+  @apply flex-shrink-0 pr-6 md:pr-8;
+
+  svg {
+    @apply w-6 h-6 text-gray-700 transition-transform duration-300;
+
+    &.icon-minus {
+      @apply hidden;
+    }
+  }
+}
+
+/* Content Container */
+.expandable-content {
+  @apply overflow-hidden transition-all duration-300 ease-in-out;
+  max-height: 0;
+
+  .expandable-section.is-open & {
+    max-height: 100vh;
+  }
+}
+
+.expandable-body {
+  @apply px-6 md:px-8 pb-6;
+}
+
+/* Table Styling */
+.expandable-section table {
+  @apply w-full text-sm md:text-base;
+
+  thead {
+    th {
+      @apply text-left py-2 px-2 font-semibold border-b border-gray-300;
+    }
+  }
+
+  tbody {
+    tr {
+      @apply border-b border-gray-200;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.01);
+      }
+      td {
+        @apply py-2 px-2;
+
+        &:first-child {
+          @apply font-medium text-gray-700;
+        }
+      }
+
+      &:last-child {
+        @apply border-0;
+      }
+    }
+  }
+}
+
+/* Options List */
+.options-list {
+  @apply space-y-3;
+}
+
+.options-item {
+  @apply flex justify-between items-center py-3 px-4 bg-gray-50 rounded hover:bg-gray-100 transition-colors;
+
+  &[data-available="true"] {
+    .options-icon {
+      @apply text-green-600;
+    }
+  }
+
+  &[data-available="false"] {
+    .options-icon {
+      @apply opacity-0;
+    }
+  }
+}
+
+.options-label {
+  @apply text-base text-gray-800 font-normal flex-1;
+}
+
+.options-icon {
+  @apply flex-shrink-0 ml-4 transition-colors;
+
+  svg {
+    @apply w-5 h-5;
+  }
+}
+
+.footer {
+  &-wrapper {
+    @apply md:mx-auto w-full md:max-w-7xl relative text-white flex flex-col justify-around  md:flex-row py-6;
+  }
+  &__social-links {
+    @apply flex flex-row gap-4 justify-center md:justify-start;
+  }
+  &__settings-links {
+    @apply flex flex-col md:flex-row gap-4 justify-center md:justify-start;
+  }
+}
+
+/* Legacy Support - Keep old styles for compatibility */
+#maattabel.wrapper,
+#info.wrapper,
+#option.wrapper,
+#dealer.wrapper {
+  width: 85%;
+  border: 1px solid #a79e9e;
+  margin-bottom: 20px;
+
+  &.expandable-section {
+    @apply border-gray-400;
+  }
+}
+
+.display {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.collection-info h2 {
+  font-size: 22px;
+}
+
+.display h2 {
+  margin: 15px 30px;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#maattabel table {
+  width: 100%;
+  padding: 0 20px 20px 30px;
+  font-size: 16px;
 }

@@ -1,0 +1,55 @@
+{exp:channel:entries channel="company_models" url_title='{segment_2}'}
+
+
+<div class="expandable-section" data-section-id="options">
+
+  <button class="expandable-header" onclick="toggleExpandable(this)" aria-expanded="false"
+    aria-controls="options-content">
+    <div class="expandable-title">
+      <h2>Opties</h2>
+    </div>
+    <div class="expandable-icon">
+      {svg-plus}
+      {svg-minus}
+    </div>
+  </button>
+
+  <!-- Content Container -->
+  <div id="options-content" class="expandable-content">
+    <div class="expandable-body">
+      <table class="table table-hover">
+        <tbody>
+          {model_upholstery}
+          <tr>
+            <td>{model_upholstery:upholstery:label}</td>
+            <td>
+              {if model_upholstery:selectable == 'Ja'}
+              {svg-check}
+              {/if}
+            </td>
+            <td>{if model_upholstery:additional_costs == 'Ja'}meerprijs{/if}</td>
+          </tr>
+          {/model_upholstery}
+          {model_frame}
+          <tr>
+            <td>{model_frame:material}</td>
+            <td>
+              {if model_frame:selectable == 'Ja'}
+              {svg-check}
+              {/if}
+            </td>
+            <td>{if model_frame:additional_costs == 'Ja'}meerprijs{/if}</td>
+          </tr>
+          {/model_frame}
+        </tbody>
+      </table>
+      <div class="text-sm text-gray-600 space-y-1">
+        {model_information_select}
+        <div>{item:label}</div>
+        {/model_information_select}
+      </div>
+    </div>
+  </div>
+</div>
+
+{/exp:channel:entries}

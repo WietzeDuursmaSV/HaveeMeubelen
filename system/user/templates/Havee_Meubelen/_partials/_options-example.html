@@ -1,0 +1,53 @@
+{*
+Voorbeeld: Opties Sectie met SVG Checkmarks
+Dit kan als referentie gebruikt worden in je model-detail pagina
+*}
+
+<div class="expandable-section" data-section-id="options">
+  <!-- Header / Toggle Button -->
+  <button class="expandable-header" onclick="toggleExpandable(this)" aria-expanded="false"
+    aria-controls="options-content">
+    <div class="expandable-title">
+      <h2>Opties</h2>
+    </div>
+    <div class="expandable-icon">
+      <!-- Plus Icon SVG -->
+      <svg class="icon-plus" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+      <!-- Minus Icon SVG -->
+      <svg class="icon-minus" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </div>
+  </button>
+
+  <!-- Content Container -->
+  <div id="options-content" class="expandable-content">
+    <div class="expandable-body">
+      <div class="options-list">
+        {options}
+        <div class="options-item" data-available="{option:available}">
+          <div class="options-label">
+            {option:name}
+            {if option:additional_price}
+            <span class="text-gray-500 text-sm ml-2">+ €{option:additional_price}</span>
+            {/if}
+          </div>
+          <div class="options-icon">
+            {if option:available}
+            <!-- Check Icon SVG -->
+            <svg class="icon-check" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+            </svg>
+            {/if}
+          </div>
+        </div>
+        {/options}
+      </div>
+    </div>
+  </div>
+</div>

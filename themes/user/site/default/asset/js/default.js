@@ -7,18 +7,27 @@ function capitalize(s) {
   return s[0].toUpperCase() + s.slice(1);
 }
 
-function toggleInfo(e) {
-  let content = document.getElementById("content-" + e);
-  let icon = document.getElementById("icon-" + e);
+// function toggleInfo(e) {
+//   let content = document.getElementById("content-" + e);
+//   let icon = document.getElementById("icon-" + e);
 
-  if (content.classList.contains("open")) {
-    content.classList.remove("open");
-    icon.classList.add("icofont-plus");
-    icon.classList.remove("icofont-minus");
-  } else {
-    content.classList.add("open");
-    icon.classList.remove("icofont-plus");
-    icon.classList.add("icofont-minus");
+//   if (content.classList.contains("open")) {
+//     content.classList.remove("open");
+//     icon.classList.add("icofont-plus");
+//     icon.classList.remove("icofont-minus");
+//   } else {
+//     content.classList.add("open");
+//     icon.classList.remove("icofont-plus");
+//     icon.classList.add("icofont-minus");
+//   }
+// }
+
+function toggleExpandable(button) {
+  const expandableSection = button.closest(".expandable-section");
+  if (expandableSection) {
+    expandableSection.classList.toggle("is-open");
+    const isOpen = expandableSection.classList.contains("is-open");
+    button.setAttribute("aria-expanded", isOpen.toString());
   }
 }
 

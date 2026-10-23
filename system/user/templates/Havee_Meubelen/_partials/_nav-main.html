@@ -6,43 +6,30 @@
     <span class="nav-hamburger__line"></span>
   </button>
 
+  <!-- #################################### -->
   <!-- Top menu (desktop) / drawer (mobiel) -->
+  <!-- #################################### -->
   <ul class="nav-menu" id="nav-menu">
     <li class="nav-menu__top-level">
       <a href="https://haveemeubelen.nl/" class="nav-menu__top-level-link">
         <span>
-          <img
-            src="https://haveemeubelen.nl/themes/site_themes/havee/images/logo_2022.png"
-            alt="Havee Meubelen logo"
-          />
+          <img src="https://haveemeubelen.nl/themes/site_themes/havee/images/logo_2022.png" alt="Havee Meubelen logo" />
         </span>
       </a>
     </li>
-    
+
     <li class="nav-menu__top-level">
-      <a class="nav-menu__top-level-item" data-menu-trigger="collectie"
-        >Collectie</a
-      >
+      <a class="nav-menu__top-level-item" data-menu-trigger="collectie">Collectie</a>
     </li>
-     <li class="nav-menu__top-level-mobile">
-      <a class="nav-menu__top-level-mobile-item" 
-        >Lookline</a
-      >
-    </li>
-     <li class="nav-menu__top-level-mobile">
-      <a class="nav-menu__top-level-mobile-item" 
-        >Cloak</a
-      >
-    </li>
-     <li class="nav-menu__top-level-mobile">
-      <a href="/collectie/moduss" class="nav-menu__top-level-mobile-item" 
-        >Moduss</a
-      >
-    </li>
+
+
+    {embed='_embeds/_menu-mobile-block' category_id="4" category_name="Lookline"}
+    {embed='_embeds/_menu-mobile-block' category_id="3" category_name="Cloak"}
+    {embed='_embeds/_menu-mobile-block' category_id="5" category_name="Moduss"}
+
+
     <li class="nav-menu__top-level">
-      <a class="nav-menu__top-level-item" data-menu-trigger="service"
-        >Service</a
-      >
+      <a class="nav-menu__top-level-item" data-menu-trigger="service">Service</a>
     </li>
     <li class="nav-menu__top-level">
       <a class="nav-menu__top-level-item">Showroom</a>
@@ -58,43 +45,22 @@
     </li>
   </ul>
 
+  <!-- ######## -->
   <!-- Submenus -->
-  <ul class="nav-menu__sub--collectie" data-menu="collectie">
-    <li class="nav-menu__sub-item--header">
-        Lookline
-    </li>
-    <li class="nav-menu__sub-item">
-      <a
-        href="https://haveemeubelen.nl/2022/model/lookline-2300-2350"
-        class="chevron-right"
-        >collectie 2300 / 2350</a
-      >
-    </li>
-    <li class="nav-menu__sub-item">
-      <a
-        href="https://haveemeubelen.nl/2022/model/lookline-2300-2350"
-        class="chevron-right"
-        >collectie 2300 / 2350</a
-      >
-    </li>
-  </ul>
-  <ul class="nav-menu__sub--service" data-menu="service">
-    <li class="nav-menu__sub-item">
-      <a
-        href="https://haveemeubelen.nl/2022/model/lookline-2300-2350"
-        class="chevron-right"
-        >service 2300 / 2350</a
-      >
-    </li>
-    <li class="nav-menu__sub-item">
-      <a
-        href="https://haveemeubelen.nl/2022/model/lookline-2300-2350"
-        class="chevron-right"
-        >service 2300 / 2350</a
-      >
-    </li>
-  </ul>
+  <!-- ######## -->
+  <div class="nav-menu__sub--collectie" data-menu="collectie">
 
-  <!-- Mobiel overlay -->
-  <div class="nav-overlay" id="nav-overlay"></div>
+    <div class="nav-menu__sub-wrapper">
+
+      {embed='_embeds/_menu-block' category_id="4" category_name="Lookline"}
+      {embed='_embeds/_menu-block' category_id="3" category_name="Cloak"}
+      {embed='_embeds/_menu-block' category_id="5" category_name="Moduss"}
+
+    </div>
+
+
+
+
+    <!-- Mobiel overlay -->
+    <div class="nav-overlay" id="nav-overlay"></div>
 </nav>

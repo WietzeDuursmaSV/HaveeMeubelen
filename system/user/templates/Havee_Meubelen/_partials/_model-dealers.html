@@ -1,0 +1,35 @@
+<div class="expandable-section" data-section-id="options">
+
+  <button class="expandable-header" onclick="toggleExpandable(this)" aria-expanded="false"
+    aria-controls="options-content">
+    <div class="expandable-title">
+      {exp:channel:entries channel="company_models" url_title='{segment_2}'}
+      <h2 id="dealer-header" class="{categories}{category_name}{/categories}">{categories}{category_name}{/categories}
+        dealers </h2>
+      {/exp:channel:entries}
+    </div>
+    <div class="expandable-icon">
+      {svg-plus}
+      {svg-minus}
+    </div>
+  </button>
+
+  <!-- Content Container -->
+  <div id="options-content" class="expandable-content">
+    <div class="expandable-body">
+      <span id="dealer-regio"></span>
+      <table class="table table-hover">
+        <tbody>
+
+          {exp:channel:entries channel="company_dealers" dynamic="no"
+          orderby="dealer_plaats" sort="asc"}
+
+          {_dealers-row}
+
+          {/exp:channel:entries}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

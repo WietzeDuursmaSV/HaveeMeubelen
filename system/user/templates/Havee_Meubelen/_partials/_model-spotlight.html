@@ -1,0 +1,39 @@
+{exp:channel:entries channel="company_models" url_title='{segment_2}' dynamic="No"}
+<section class="layout-section__feature" style="background-color:{model_banner_color:value}">
+  <div class="spotlight-wrapper">
+    <div class="spotlight__content-text">
+      <h2 class="spotlight__content-header">Model: {title}</h2>
+      <p>{model_information}</p>
+
+      <div class="spotlight__badge"
+        style="background-image: url(https://haveemeubelen.nl/themes/site_themes/havee/images/badge.png);">
+        <div class="spotlight__badge-text" id="header-badge-text"
+          style="position: inherit; top: {model_badge_top}px; left:{model_badge_left}px; ">
+          {if model_badge}
+          {model_badge}
+          {if:else}
+          Vertrouwen in 70 jaar hollands vakmanschap.
+          {/if}
+        </div>
+      </div>
+
+    </div>
+    <div class="spotlight__content-model">
+      <div class="spotlight__image-wrapper">
+        {model_images }
+        <img class="spotlight__image" src="{model_images:modal_image}"
+          onclick="changeImage('{model_images:modal_image}')">
+        {/model_images}
+      </div>
+    </div>
+  </div>
+</section>
+{if logged_in}
+<div class="">
+  <h2>Settings</h2>
+  Top: {model_badge_top}
+  Left {model_badge_left}
+</div>
+{/if}
+
+{/exp:channel:entries}

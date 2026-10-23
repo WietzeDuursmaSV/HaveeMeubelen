@@ -1,0 +1,49 @@
+{exp:channel:entries channel="company_models" url_title='{segment_2}'}
+
+
+<div class="expandable-section" data-section-id="maattabel">
+
+  <button class="expandable-header" onclick="toggleExpandable(this)" aria-expanded="false"
+    aria-controls="maattabel-content">
+    <div class="expandable-title">
+      <h2>Maatvoering</h2>
+    </div>
+    <div class="expandable-icon">
+      {svg-plus}
+      {svg-minus}
+    </div>
+  </button>
+
+  <!-- Content Container -->
+  <div id="maattabel-content" class="expandable-content">
+    <div class="expandable-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Details: {title}</th>
+            <th>Breedte</th>
+            <th>Hoogte</th>
+            <th>Diepte</th>
+          </tr>
+        </thead>
+        <tbody>
+          {model_elements}
+          <tr>
+            <td>{model_elements:elements:label}</td>
+            <td>{model_elements:width}</td>
+            <td>{model_elements:height}</td>
+            <td>{model_elements:depth}</td>
+          </tr>
+          {/model_elements}
+        </tbody>
+      </table>
+      <div class="text-sm text-gray-600 space-y-1">
+        {model_information_select}
+        <div>{item:label}</div>
+        {/model_information_select}
+      </div>
+    </div>
+  </div>
+</div>
+
+{/exp:channel:entries}

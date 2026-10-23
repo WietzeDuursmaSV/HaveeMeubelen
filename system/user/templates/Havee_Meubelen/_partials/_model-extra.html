@@ -1,0 +1,28 @@
+{exp:channel:entries channel="company_models" url_title='{segment_2}'}
+
+
+<div class="expandable-section" data-section-id="extra-informatie">
+
+  <button class="expandable-header" onclick="toggleExpandable(this)" aria-expanded="false"
+    aria-controls="extra-informatie-content">
+    <div class="expandable-title">
+      <h2>Extra informatie</h2>
+    </div>
+    <div class="expandable-icon">
+      {svg-plus}
+      {svg-minus}
+    </div>
+  </button>
+
+  <!-- Content Container -->
+  <div id="extra-informatie-content" class="expandable-content">
+    <div class="expandable-body">
+      <div class="text-sm text-gray-600 space-y-1">
+        {model_extra_infromation}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{/exp:channel:entries}

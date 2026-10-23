@@ -1,0 +1,12 @@
+<div class="nav-menu__sub-wrapper-part">
+  <div class="nav-menu__sub-wrapper-part-header">
+    <h4>{embed:category_name}</h4>
+  </div>
+  <div class="nav-menu__sub-wrapper-part-collectie">
+    {exp:channel:entries channel="company_models" category="{embed:category_id}" dynamic="no"}
+    <li class="nav-menu__sub-item">
+      <a href="{site_url}model/{url_title}" class="chevron-right">{title}</a>
+    </li>
+    {/exp:channel:entries}
+  </div>
+</div>

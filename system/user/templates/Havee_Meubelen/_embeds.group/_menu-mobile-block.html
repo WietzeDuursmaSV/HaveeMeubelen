@@ -1,0 +1,15 @@
+<li class="nav-menu__top-level-mobile">
+  <a class="nav-menu__top-level-mobile-item nav-mobile-accordion__trigger" data-accordion="{embed:category_name}">
+    {embed:category_name}
+    <span class="nav-mobile-accordion__arrow"></span>
+  </a>
+  <div class="nav-mobile-accordion__content" id="accordion-{embed:category_name}">
+
+    {exp:channel:entries channel="company_models" category="{embed:category_id}" dynamic="no"}
+    <span class="nav-menu__sub-mobile-item">
+      <a href="{site_url}model/{url_title}" class="chevron-right">{title}</a>
+    </span>
+    {/exp:channel:entries}
+
+  </div>
+</li>
